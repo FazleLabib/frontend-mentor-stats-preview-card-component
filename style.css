@@ -1,0 +1,215 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@200;400&display=swap');
+
+
+:root {
+    /* ## Colors */
+
+
+    /* ### Primary */
+
+    /* (main background) */
+    --very-dark-blue: hsl(233, 47%, 7%);
+
+    /* (card background) */
+    --dark-desaturated-blue: hsl(244, 38%, 16%);
+
+    /* (accent) */
+    --soft-violet: hsl(277, 64%, 61%);
+
+
+    /* ### Neutral */
+
+    /* (main heading, stats) */
+    --white: hsl(0, 0%, 100%); 
+
+    /* (main paragraph) */
+    --slightly-transparent-white-a: hsla(0, 0%, 100%, 0.75);
+
+    /* (stat headings) */
+    --slightly-transparent-white-b: hsla(0, 0%, 100%, 0.6);
+
+    --lexend-deca: 'Lexend Deca', sans-serif;
+    --inter: 'Inter', sans-serif;
+
+    --border-radius: 0.5rem;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: var(--inter);
+}
+
+h1, h2, p {
+    font-family: var(--inter);
+    color: var(--white);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--very-dark-blue);
+}
+
+.card {
+    display: flex;
+    max-width: 70rem;
+    border-radius: var(--border-radius);
+    background-color: var(--dark-desaturated-blue);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 50%;
+    padding: 4rem;
+    padding-right: 6rem;
+}
+
+.content .header {
+    font-size: 2.5rem;
+    padding-bottom: 1rem;
+}
+
+.content .highlight {
+    color: var(--soft-violet);
+}
+
+.content .description {
+    font-family: var(--inter);
+    font-weight: 200;
+    font-size: 1.05rem;
+    line-height: 1.5rem;
+    padding-bottom: 4rem;
+    color: var(--slightly-transparent-white-a);
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.stats h2 {
+    padding-bottom: 0.5rem;
+}
+.stats p, .stats-3 {
+    text-transform: uppercase;
+}
+
+.stats p {
+    font-family: var(--lexend-deca);
+    font-weight: 200;
+    font-size: 0.75rem;
+    letter-spacing: 0.05rem;
+    color: var(--slightly-transparent-white-b);
+}
+
+.image {
+    position: relative;
+}
+
+
+.image::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--soft-violet); 
+    mix-blend-mode: multiply;
+    pointer-events: none;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+.image .desktop {
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    display: block;
+}
+
+.image .mobile {
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    display: none;
+}
+
+footer {
+    position: absolute;
+    bottom: 1rem;
+}
+.attribution { 
+    color: var(--white);
+    font-size: 11px; 
+    text-align: center; 
+}
+
+.attribution a { 
+    color: var(--soft-violet); 
+}
+
+@media screen and (max-width: 650px){
+    .card {
+        display: flex;
+        flex-direction: column-reverse;
+        max-width: 22rem;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        text-align: center;
+        width: 100%;
+        padding: 0;
+    }
+
+    .content .header {
+        font-size: 2rem;
+        padding: 2rem 1.5rem;
+    }
+
+    .content .description {
+        font-size: 1rem;
+        line-height: 1.5rem;
+        padding: 0 2.5rem;
+    }
+    
+    .stats {
+        padding: 2.5rem 2rem 1rem 2rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .stats-1, .stats-2, .stats-3 {
+        padding-bottom: 1.5rem;
+    }
+
+    .image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .image::before {
+        border-radius: var(--border-radius) var(--border-radius) 0 0;
+    }
+
+    .image .desktop {
+        display: none;
+    }
+
+    .image .mobile {
+        max-width: 22rem;
+        display: block;
+    }
+
+    footer {
+        position: initial;
+    }
+}
